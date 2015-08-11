@@ -1,0 +1,6 @@
+bind ^1 input /ra <t>
+bind ^2 input /ja "Provoke" <t>
+bind !1 input /ja "Boost" <me>; /wait 2; input /ws "Combo" <t>
+bind !9 input /equip body "Power gi"; input /equip hands "Bastokan mittens"; input /equip legs "Brass subligar +1"; input /equip feet "Hume M boots"
+bind !0 input /equip body "Vagabond's tunica"; input /equip hands "Vagabond's gloves"; input /equip legs "Vagabond's hose"; input /equip feet "Vagabond's boots"
+

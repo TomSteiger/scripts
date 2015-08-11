@@ -1,0 +1,6 @@
+bind ^1 input /ra <t>
+bind ^2 input /ja "Third Eye" <me>
+bind !1 input /ws "Tachi: Enpi" <t>
+bind !9 input /equip body "Power gi"; input /equip hands "Bastokan mittens"; input /equip legs "Brass subligar +1"; input /equip feet "Bounding boots"
+bind !0 input /equip body "Vagabond's tunica"; input /equip hands "Vagabond's gloves"; input /equip legs "Vagabond's hose"; input /equip feet "Vagabond's boots"
+
