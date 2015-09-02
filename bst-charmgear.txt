@@ -1,0 +1,13 @@
+echo "Setting up Charm gear"
+
+input /equip head "Noble's ribbon"
+input /equip body "Garrison tunica"
+input /equip ring1 "Loyalty ring +1"
+input /equip ring2 "Loyalty ring +1"
+input /equip waist "Corsette +1"
+input /equip legs "Darksteel codpiece"
+input /equip feet "Beast gaiters"
+
+echo "Charm gear on"
+
+

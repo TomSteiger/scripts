@@ -1,0 +1,22 @@
+echo "Gearing Up"
+
+input /equip main "Zoraal Ja's axe"
+input /equip sub "Zoraal Ja's axe"
+input /equip ring1 "Unyielding ring"
+input /equip range ""
+input /equip ammo "Pet Food Epsilon biscuit"
+input /equip head "Wivre mask +1"
+input /equip neck "Chivalrous chain"
+input /equip ear1 "Cassie earring"
+input /equip ear2 "Heims earring"
+input /equip body "Haubergeon +1"
+input /equip hands "Raven bracers"
+input /equip ring2 "Garrulous ring"
+input /equip back "Jaguar mantle"
+input /equip waist "Royal Knight's belt"
+input /equip legs "Iron Ram breeches"
+input /equip feet "Bounding boots"
+
+echo "Ready to fight"
+
+

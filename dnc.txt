@@ -1,0 +1,8 @@
+exec unbind.txt
+
+bind ^1 input /ja "Drain Samba" <me>
+bind ^2 input /ja "Curing Waltz" <me>
+
+bind !1 input /ja "Quickstep" <t>
+
+echo "Dancer Macro's set"

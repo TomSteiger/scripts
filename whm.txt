@@ -1,0 +1,12 @@
+exec unbind.txt
+
+bind ^1 input /ma "Cure II" <stpc>
+bind ^2 input /ma "Cure III" <stpc>
+bind ^3 input /ma "Cure IV" <stpc>
+bind ^0 input /ma "Regen" <stpc>
+
+bind !1 input /ma "Paralyze" <t>; wait 6; input /ma "Dia" <t>; wait 4; input /ma "Slow" <t>
+bind !9 input /ma "Haste" <stpc>
+bind !0 input /ma "Erase" <stpc>
+
+echo "WHM Macro's set"

@@ -1,0 +1,15 @@
+echo "Unbinding keys"
+exec unbind.txt
+
+echo "Setting up DRK key bindings
+
+bind ^1 input /ra <t>
+
+
+bind !1 input /ja "Drain Samba" <me>
+bind !2 input /ja "Weapon Bash" <t>
+
+
+echo "DRK key bindings complete"
+
+

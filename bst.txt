@@ -1,0 +1,25 @@
+echo "Unbinding keys"
+exec unbind.txt
+
+exec bst-fightgear.txt
+
+echo "Setting up BST key bindings
+
+bind ^1 input /pet Fight <t>
+bind ^2 input /pet Heel <me>
+bind ^3 input /pet Leave <me>
+bind ^8 input /ja Sic <me>
+bind ^9 input /equip ammo "Jug of auroral broth"; input /ja "Call Beast" <me>
+bind ^0 exec bst-charmgear.txt; wait 1; input /ja Charm <t>; wait 2; exec bst-fightgear.txt
+
+
+bind !1 input /ja "Drain Samba" <me>
+bind !2 input /equip ammo "Pet Food Zeta biscuit"; input /ja Reward <me>
+bind !3 input /ja Curing Waltz" <st>
+bind !4 input /ja "Curing Waltz II" <st>
+bind !9 input /ja "Quickstep" <t>
+bind !0 input /ja "Box Step" <t>
+
+echo "BST key bindings complete"
+
+
