@@ -23,7 +23,7 @@ iPlyrLevel=tblPlayer.main_job_level
 tblPlyrSkills=tblPlayer.skills
 
 --print player info
-windower.add_to_chat(121,'Player Max MP: '..iPlyrMP)
+windower.add_to_chat(121,'Player Max MP: '..iPlyrMPMax)
 windower.add_to_chat(121,'Player Job: '..sPlyrJob)
 windower.add_to_chat(121,'Player Status: '..sPlyrStatus)
 windower.add_to_chat(121,'Player Job Level: '..iPlyrLevel)
