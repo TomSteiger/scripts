@@ -27,7 +27,7 @@ windower.add_to_chat(121,'Player Max MP: '..iPlyrMP)
 windower.add_to_chat(121,'Player Job: '..sPlyrJob)
 windower.add_to_chat(121,'Player Status: '..sPlyrStatus)
 windower.add_to_chat(121,'Player Job Level: '..iPlyrLevel)
-windower.add_to_chat(121,'Player MP: '..windower.ffxi.get_player()[vitals][mp])
+windower.add_to_chat(121,'Player MP: '..windower.ffxi.get_player()['vitals']['mp'])
 
 --print all of the skills for the player
 for k, v in pairs( tblPlyrSkills ) do
