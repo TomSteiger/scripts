@@ -23,7 +23,7 @@ sPlyrStatus=tblPlayer.status
 iPlyrLevel=tblPlayer.main_job_level
 tblPlyrSkills=tblPlayer.skills
 
---print all of the skils for the player
+--print all of the skills for the player
 for k, v in pairs( tblPlyrSkills ) do
-  print(k, v)
+  windower.console.write(k .. v)
 end
