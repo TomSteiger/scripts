@@ -23,7 +23,16 @@ sPlyrStatus=tblPlayer.status
 iPlyrLevel=tblPlayer.main_job_level
 tblPlyrSkills=tblPlayer.skills
 
+--print player info
+windower.add_to_chat(121,'Player Max MP: '..iPlyrMP)
+windower.add_to_chat(121,'Player Job: '..sPlyrJob)
+windower.add_to_chat(121,'Player Status: '..sPlyrStatus)
+windower.add_to_chat(121,'Player Job Level: '..iPlyrLevel)
+windower.add_to_chat(121,'Player MP: '..get_player()[vitals][mp])
+
 --print all of the skills for the player
 for k, v in pairs( tblPlyrSkills ) do
-  windower.console.write(k .. v)
+  --if (k == 'healing' or k == 'enhancing') then
+    windower.add_to_chat(121,k .. ' - ' .. v)
+  --end
 end
