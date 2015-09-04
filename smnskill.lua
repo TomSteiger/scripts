@@ -1,8 +1,13 @@
-bRun = true
-
-while bRun == true do
-  print(windower.ffxi.get_player()['status'])
-  if windower.ffxi.get_player()['status'] == '33' then
-    bRun = false
-  end
+function snooz(lcli)
+  coroutine.sleep(i)
+  bKeepGoing = true
 end
+
+bKeepGoing = false
+
+print(1)
+snooze(3)
+while bKeepGoing = false
+   print 'Keep waiting: '..bKeepGoing 
+end
+print (2)
