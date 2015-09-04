@@ -10,6 +10,11 @@
 res = require('resources')
 require('tables')
 
+--Sleep function so that we can pause between casts...
+function sleep(lcli)
+  os.execute('timeout '..tonumber(lcli))
+end
+
 --Table for skill caps for healing magic
 tblHealingCap={6;9;12;15;18;21;24;27;30;33;36;39;42;45;48;51;54;57;60;63;66;69;72;75;78;81;84;87;90;93;96;99;102;105;108;111;114;117;120;123;126;129;132;135;138;141;144;147;150;153;158;163;168;173;178;183;188;193;198;203;207;212;217;222;227;232;236;241;246;251;256;261;266;271;276}
 
@@ -112,10 +117,8 @@ if sPlyrJob == 'WHM' then
             --Player knows the spell so now we do the actual casting
             windower.send_command('input /ma '.. res.spells:with('id',k)['name']..' <me>')
             --Sleep the script for the time being
-            while windower.ffxi.get_player()['status'] ~= '0' then
-              print('Not ready!')
-            do
-            --how do I sleep here for the casting time
+            iDelay = tonumber(res.spells:with('id',k)['cast_time']) + 1
+            sleep(iDelay)
           end             
         end
       end
