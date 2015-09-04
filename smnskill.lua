@@ -1,8 +1,8 @@
-i = 0
+bRun = true
 
-while i < 20 do
-  print('The value of i is: '..i)
-  coroutine.sleep(2)
-  print('Next i is - '..(i+1))
-  i = i+1
+while bRun == true do
+  print(windower.ffxi.get_player()['status'])
+  if windower.ffxi.get_player()['status'] == '33' then
+    bRun = false
+  end
 end
