@@ -1,4 +1,4 @@
-function snooz(lcli)
+function snooze(lcli)
   coroutine.sleep(i)
   bKeepGoing = true
 end
