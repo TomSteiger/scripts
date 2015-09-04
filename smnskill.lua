@@ -1,3 +1,5 @@
+i = 0
+
 while i < 20 do
   print('The value of i is: '..i)
   coroutine.sleep(2)
