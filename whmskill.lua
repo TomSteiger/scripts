@@ -47,7 +47,7 @@ windower.add_to_chat(121,'Player Status: '..sPlyrStatus)
 windower.add_to_chat(121,'Player Job Level: '..iPlyrLevel)
 windower.add_to_chat(121,'Player MP: '..windower.ffxi.get_player()['vitals']['mp'])
 
---print all of the skills for the player
+--Print the  WHM skills for the player
 for k, v in pairs( tblPlyrSkills ) do
   if (k == 'healing_magic' or k == 'enhancing_magic') then
     --windower.add_to_chat(121,k .. ' - ' .. v)
@@ -57,25 +57,39 @@ end
 windower.add_to_chat(121,'Healing Skill Cap for current level: '..tblHealingCap[iPlyrLevel])
 windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancingCap[iPlyrLevel])
 
---Get Cure spell IDs
-windower.console.write(tostring(res.spells:with('name', 'Flash')))
+if sPlyrJob == 'WHM' then
 
+  --Get Cure spell IDs
+  tblCures[1] = res.spells:with('name', 'Cure')['id']
+  tblCures[2] = res.spells:with('name','Cure II')['id']
+  tblCures[3] = res.spells:with('name','Cure III')['id']
+  tblCures[4] = res.spells:with('name','Cure IV')['id']
+  tblCures[5] = res.spells:with('name','Cure V')['id']
+  
+  for k,v in pairs(tblCures) do
+    windower.console.write(k..' - '..v)
+  end
+  
+  --windower.add_to_chat(121,iSpellID)
+  --tblCures[1] = res.spells:with('name', 'Cure')
+  
+  --sTemp = tblCures[1]
+  --windower.add_to_chat(121,sTemp)
+  --windower.add_to_chat(121,tostring(tblSpells[tblCures[1]]))
+  
+  
+  --Need to determine what cure levels we have...
+  --tblSpells = windower.ffxi.get_spells()
+  
+  
+  
+  --for k,v in pairs(tblSpells) do
+  --  windower.add_to_chat(121,k..' - '..v)
+  --while 
 
---windower.add_to_chat(121,iSpellID)
---tblCures[1] = res.spells:with('name', 'Cure')
+else
+  windower.add_to_chat(121,'Please change to WHM as your main Job!!!')
+end
 
---sTemp = tblCures[1]
---windower.add_to_chat(121,sTemp)
---windower.add_to_chat(121,tostring(tblSpells[tblCures[1]]))
-
-
---Need to determine what cure levels we have...
---tblSpells = windower.ffxi.get_spells()
-
-
-
---for k,v in pairs(tblSpells) do
---  windower.add_to_chat(121,k..' - '..v)
---while 
 
 windower.add_to_chat(121,'We are all done here!!!')
