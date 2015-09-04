@@ -56,14 +56,17 @@ end
 windower.add_to_chat(121,'Healing Skill Cap for current level: '..tblHealingCap[iPlyrLevel])
 windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancingCap[iPlyrLevel])
 
---Need to determine what cure levels we have...
-tblSpells = windower.ffxi.get_spells()
-
 --Get Cure spell IDs
---tblCures[1] = res.spells:with('name', 'Cure')
+tblCures[1] = res.spells:with('name', 'Cure')
 
---windower.add_to_chat(121,tostring(tblCures[1]))
---windower.add_to_chat(121,tblSpells[tblCures[1]])
+windower.add_to_chat(121,tostring(tblCures[1]))
+windower.add_to_chat(121,tostring(tblSpells[tblCures[1]]))
+
+
+--Need to determine what cure levels we have...
+--tblSpells = windower.ffxi.get_spells()
+
+
 
 --for k,v in pairs(tblSpells) do
 --  windower.add_to_chat(121,k..' - '..v)
