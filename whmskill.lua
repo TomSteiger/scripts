@@ -30,7 +30,7 @@ iPlyrLevel='0'
 tblPlyrSkills={}
 tblCures={0,0,0,0,0}
 tblEnhance={0,0,0,0,0,0,0,0,0,0,0,0}
-bHealing = false
+bHealing=false
 
 --Get initial character information...
 tblPlayer = windower.ffxi.get_player()
@@ -52,6 +52,7 @@ windower.add_to_chat(121,'Player Max MP: '..iPlyrMPMax)
 for k, v in pairs( tblPlyrSkills ) do
   if k == 'healing_magic' then 
     windower.add_to_chat(121,'Current Healing Skill: ' .. v)  
+  end
   if k == 'enhancing_magic' then
     windower.add_to_chat(121,'Current Enhancing Skill: ' .. v)
   end
@@ -61,9 +62,10 @@ end
 windower.add_to_chat(121,'Healing Skill Cap for current level: '..tblHealingCap[iPlyrLevel])
 windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancingCap[iPlyrLevel])
 
+
 --Check if we are healing and if so stop healing
-if sPlyrStatus ~= '33' then
-  windower.send_command('/heal')
+if sPlyrStatus == 33 then
+  windower.send_command('input /heal')
 end
 
 if sPlyrJob == 'WHM' then
@@ -85,17 +87,10 @@ if sPlyrJob == 'WHM' then
   tblEnhance[7] = res.spells:with('name', 'Barfira')['id']
   tblEnhance[8] = res.spells:with('name', 'Barblindra')['id']
   tblEnhance[9] = res.spells:with('name', 'Barblizzara')['id']
-  tblEnhance[10] = res.spells:with('name', 'Barsilencra')['id']
+  tblEnhance[10] = res.spells:with('name', 'Barsilencera')['id']
   tblEnhance[11] = res.spells:with('name', 'Barthundra')['id']
   tblEnhance[12] = res.spells:with('name', 'Barpetra')['id']  
   
-  for k,v in pairs(tblCures) do
-    print(k..' - '..v)
-  end
-  
-  for k,v in pairs(tblEnhance) do
-    print(k..' - '..v)
-  end
   
   --Start a loop for capping healing...
   while (tonumber(windower.ffxi.get_player()['skills']['healing_magic']) < tonumber(tblHealingCap[iPlyrLevel])) do
@@ -107,7 +102,7 @@ if sPlyrJob == 'WHM' then
     else
     
       --Loop over the cure spells and start casting
-      for k,v in tblCures do
+      for k, v in pairs(tblCures) do
         if windower.ffxi.get_player()['vitals']['mp'] < 8 and windower.ffxi.get_player()['status'] ~= '33' then
           bHealing = true
           windower.send_command('/heal')
@@ -115,9 +110,12 @@ if sPlyrJob == 'WHM' then
           --Check if the player has the spells
           if windower.ffxi.get_spells()[v] == true then
             --Player knows the spell so now we do the actual casting
-            windower.send_commnad('/ma '.. res.spells:with('id',k)['name']..' <me>')
+            windower.send_command('input /ma '.. res.spells:with('id',k)['name']..' <me>')
             --Sleep the script for the time being
-            coroutine.sleep(tonumber(res.spells:with('id',k)['cast_time'])
+            while windower.ffxi.get_player()['status'] ~= '0' then
+              print('Not ready!')
+            do
+            --how do I sleep here for the casting time
           end             
         end
       end
