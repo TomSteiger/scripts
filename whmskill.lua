@@ -27,7 +27,7 @@ iPlyrMPMax='0'
 iPlyrMP='0'
 iPlyrLevel='0'
 tblPlyrSkills={}
-tblCures{1=0;2=0;3=0;4=0;5=0}
+tblCures{0,0,0,0,0}
 
 --Get initial character information...
 tblPlayer = windower.ffxi.get_player()
@@ -63,7 +63,7 @@ tblSpells = windower.ffxi.get_spells()
 tblCures[1] = res.spells:with('name', 'Cure')
 
 windower.add_to_chat(121,tblCures[1])
-windower.add_to_chat(121,tblSpells[tblCures[1]])
+--windower.add_to_chat(121,tblSpells[tblCures[1]])
 
 --for k,v in pairs(tblSpells) do
 --  windower.add_to_chat(121,k..' - '..v)
