@@ -27,7 +27,7 @@ iPlyrMPMax='0'
 iPlyrMP='0'
 iPlyrLevel='0'
 tblPlyrSkills={}
-tblCures{0,0,0,0,0}
+tblCures={0,0,0,0,0}
 
 --Get initial character information...
 tblPlayer = windower.ffxi.get_player()
