@@ -8,6 +8,7 @@
 
 --LUA requires (thats like imports)
 res = require('resources')
+require('tables')
 
 --Table for skill caps for healing magic
 tblHealingCap={6;9;12;15;18;21;24;27;30;33;36;39;42;45;48;51;54;57;60;63;66;69;72;75;78;81;84;87;90;93;96;99;102;105;108;111;114;117;120;123;126;129;132;135;138;141;144;147;150;153;158;163;168;173;178;183;188;193;198;203;207;212;217;222;227;232;236;241;246;251;256;261;266;271;276}
@@ -58,6 +59,8 @@ windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancing
 
 --Get Cure spell IDs
 windower.debug(res.spells:with('name', 'Cure'))
+
+
 --windower.add_to_chat(121,iSpellID)
 --tblCures[1] = res.spells:with('name', 'Cure')
 
@@ -74,3 +77,5 @@ windower.debug(res.spells:with('name', 'Cure'))
 --for k,v in pairs(tblSpells) do
 --  windower.add_to_chat(121,k..' - '..v)
 --while 
+
+windower.add_to_chat(121,'We are all done here!!!')
