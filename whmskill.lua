@@ -57,7 +57,7 @@ windower.add_to_chat(121,'Healing Skill Cap for current level: '..tblHealingCap[
 windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancingCap[iPlyrLevel])
 
 --Get Cure spell IDs
-iSpellID = tonumber(res.spells:with('name', 'Cure')
+iSpellID = res.spells:with('name', 'Cure')
 windower.add_to_chat(121,iSpellID)
 --tblCures[1] = res.spells:with('name', 'Cure')
 
