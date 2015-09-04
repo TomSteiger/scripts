@@ -9,7 +9,7 @@ tblHealingCap={6;9;12;15;18;21;24;27;30;33;36;39;42;45;48;51;54;57;60;63;66;69;7
 tblEnhancingCap={5;7;10;13;16;19;21;24;27;30;33;35;38;41;44;47;49;52;55;58;61;63;66;69;72;75;77;80;83;86;89;91;94;97;100;103;105;108;111;114;117;119;122;125;128;131;133;136;139;142;146;151;156;161;166;170;175;180;185;190;192;195;197;200;202;205;207;210;212;215;218;221;224;227;230}
 
 -- Initial usage message...
-windower.add_to_chat('This script skillshealing and then enhancing to cap both.')
+windower.add_to_chat(121,'This script skillshealing and then enhancing to cap both.')
 
 --Initialize variables for the script...
 sPlyrJob='None'
@@ -36,12 +36,12 @@ windower.add_to_chat(121,'Player Status: '..sPlyrStatus)
 windower.add_to_chat(121,'Player Job Level: '..iPlyrLevel)
 windower.add_to_chat(121,'Player MP: '..windower.ffxi.get_player()['vitals']['mp'])
 
---print all of the skills for the player
-for k, v in pairs( tblPlyrSkills ) do
-  if (k == 'healing_magic' or k == 'enhancing_magic') then
-    --windower.add_to_chat(121,k .. ' - ' .. v)
-  end
-end
+----print all of the skills for the player
+--for k, v in pairs( tblPlyrSkills ) do
+--  if (k == 'healing_magic' or k == 'enhancing_magic') then
+--    --windower.add_to_chat(121,k .. ' - ' .. v)
+--  end
+--end
 
 --windower.add_to_chat(121,'Healing Skill Cap for current level: '..tblHealingCap[iPlyrLevel])
 --windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancingCap[iPlyrLevel])
