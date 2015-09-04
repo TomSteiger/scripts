@@ -59,8 +59,8 @@ windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancing
 --Get Cure spell IDs
 tblCures[1] = res.spells:with('name', 'Cure')
 
-windower.add_to_chat(121,tostring(tblCures[1]))
-windower.add_to_chat(121,tostring(tblSpells[tblCures[1]]))
+windower.add_to_chat(121,tblCures[1])
+--windower.add_to_chat(121,tostring(tblSpells[tblCures[1]]))
 
 
 --Need to determine what cure levels we have...
