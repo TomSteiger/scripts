@@ -2,6 +2,13 @@
 --This does some very basic checking to make sure that we are on the right job
 --and gets MaxMP and such. Needs to be invoked from the console.
 
+-- Author: Etamame
+-- Version: 0.5
+-- Name: WHM Healing and Enhancing Skill Script
+
+--LUA requires (thats like imports)
+res = require('resources')
+
 --Table for skill caps for healing magic
 tblHealingCap={6;9;12;15;18;21;24;27;30;33;36;39;42;45;48;51;54;57;60;63;66;69;72;75;78;81;84;87;90;93;96;99;102;105;108;111;114;117;120;123;126;129;132;135;138;141;144;147;150;153;158;163;168;173;178;183;188;193;198;203;207;212;217;222;227;232;236;241;246;251;256;261;266;271;276}
 
@@ -9,7 +16,9 @@ tblHealingCap={6;9;12;15;18;21;24;27;30;33;36;39;42;45;48;51;54;57;60;63;66;69;7
 tblEnhancingCap={5;7;10;13;16;19;21;24;27;30;33;35;38;41;44;47;49;52;55;58;61;63;66;69;72;75;77;80;83;86;89;91;94;97;100;103;105;108;111;114;117;119;122;125;128;131;133;136;139;142;146;151;156;161;166;170;175;180;185;190;192;195;197;200;202;205;207;210;212;215;218;221;224;227;230}
 
 -- Initial usage message...
-windower.add_to_chat(121,'This script skillshealing and then enhancing to cap both.')
+windower.add_to_chat(121,'This script skills healing and then enhancing to cap both.')
+windower.add_to_chat(121,'Will cap to the appropriate skill for your current level')
+windower.add_to_chat(121,'Assumes that your job is WHM and you are in a place you can cast')
 
 --Initialize variables for the script...
 sPlyrJob='None'
@@ -18,6 +27,7 @@ iPlyrMPMax='0'
 iPlyrMP='0'
 iPlyrLevel='0'
 tblPlyrSkills={}
+tblCures{1=0;2=0;3=0;4=0;5=0}
 
 --Get initial character information...
 tblPlayer = windower.ffxi.get_player()
@@ -49,7 +59,11 @@ windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancing
 Need to determine what cure levels we have...
 tblSpells = windower.ffxi.get_spells()
 
-windower.add_to_chat(121,tblSpells[0])
+--Get Cure spell IDs
+tblCures[1] = res.spells:with('name', 'Cure')
+
+windower.add_to_chat(121,tblCures[1])
+windower.add_to_chat(121,tblSpells[tblCures[1]])
 
 --for k,v in pairs(tblSpells) do
 --  windower.add_to_chat(121,k..' - '..v)
