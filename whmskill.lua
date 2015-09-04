@@ -49,6 +49,8 @@ windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancing
 Need to determine what cure levels we have...
 tblSpells = windower.ffxi.get_spells()
 
-for k,v in pairs(tblSpells) do
-  windower.add_to_chat(121,k..' - '..v)
-while 
+windower.add_to_chat(121,tblSpells)
+
+--for k,v in pairs(tblSpells) do
+--  windower.add_to_chat(121,k..' - '..v)
+--while 
