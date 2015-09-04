@@ -29,6 +29,8 @@ iPlyrMP='0'
 iPlyrLevel='0'
 tblPlyrSkills={}
 tblCures={0,0,0,0,0}
+tblEnhance={0,0,0,0,0,0,0,0,0,0,0,0}
+bHealing = false
 
 --Get initial character information...
 tblPlayer = windower.ffxi.get_player()
@@ -38,24 +40,31 @@ sPlyrJob=tblPlayer.main_job
 sPlyrStatus=tblPlayer.status
 iPlyrLevel=tblPlayer.main_job_level
 tblPlyrSkills=tblPlayer.skills
+tblPlyrSpells=windower.ffxi.get_spells()
 
 --print player info
 windower.add_to_chat(121,'Inital Information for the WHM Skill Script')
-windower.add_to_chat(121,'Player Max MP: '..iPlyrMPMax)
-windower.add_to_chat(121,'Player Job: '..sPlyrJob)
+windower.add_to_chat(121,'Player Job: '..sPlyrJob..' - '..iPlyrLevel)
 windower.add_to_chat(121,'Player Status: '..sPlyrStatus)
-windower.add_to_chat(121,'Player Job Level: '..iPlyrLevel)
 windower.add_to_chat(121,'Player MP: '..windower.ffxi.get_player()['vitals']['mp'])
-
+windower.add_to_chat(121,'Player Max MP: '..iPlyrMPMax)
 --Print the  WHM skills for the player
 for k, v in pairs( tblPlyrSkills ) do
-  if (k == 'healing_magic' or k == 'enhancing_magic') then
-    --windower.add_to_chat(121,k .. ' - ' .. v)
+  if k == 'healing_magic' then 
+    windower.add_to_chat(121,'Current Healing Skill: ' .. v)  
+  if k == 'enhancing_magic' then
+    windower.add_to_chat(121,'Current Enhancing Skill: ' .. v)
   end
 end
 
+--Print the skill cap for the current level...
 windower.add_to_chat(121,'Healing Skill Cap for current level: '..tblHealingCap[iPlyrLevel])
 windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancingCap[iPlyrLevel])
+
+--Check if we are healing and if so stop healing
+if sPlyrStatus ~= '33' then
+  windower.send_command('/heal')
+end
 
 if sPlyrJob == 'WHM' then
 
@@ -66,26 +75,58 @@ if sPlyrJob == 'WHM' then
   tblCures[4] = res.spells:with('name','Cure IV')['id']
   tblCures[5] = res.spells:with('name','Cure V')['id']
   
+  --Get Bar spell IDs
+  tblEnhance[1] = res.spells:with('name', 'Barstonra')['id']
+  tblEnhance[2] = res.spells:with('name', 'Barsleepra')['id']
+  tblEnhance[3] = res.spells:with('name', 'Barwatera')['id']
+  tblEnhance[4] = res.spells:with('name', 'Barpoisonra')['id']
+  tblEnhance[5] = res.spells:with('name', 'Barparalyzra')['id']
+  tblEnhance[6] = res.spells:with('name', 'Baraera')['id']
+  tblEnhance[7] = res.spells:with('name', 'Barfira')['id']
+  tblEnhance[8] = res.spells:with('name', 'Barblindra')['id']
+  tblEnhance[9] = res.spells:with('name', 'Barblizzara')['id']
+  tblEnhance[10] = res.spells:with('name', 'Barsilencra')['id']
+  tblEnhance[11] = res.spells:with('name', 'Barthundra')['id']
+  tblEnhance[12] = res.spells:with('name', 'Barpetra')['id']  
+  
   for k,v in pairs(tblCures) do
-    windower.console.write(k..' - '..v)
+    print(k..' - '..v)
   end
   
-  --windower.add_to_chat(121,iSpellID)
-  --tblCures[1] = res.spells:with('name', 'Cure')
+  for k,v in pairs(tblEnhance) do
+    print(k..' - '..v)
+  end
   
-  --sTemp = tblCures[1]
-  --windower.add_to_chat(121,sTemp)
-  --windower.add_to_chat(121,tostring(tblSpells[tblCures[1]]))
+  --Start a loop for capping healing...
+  while (tonumber(windower.ffxi.get_player()['skills']['healing_magic']) < tonumber(tblHealingCap[iPlyrLevel])) do
+    if bHealing == true then
+      if windower.ffxi.get_player()['vitals']['mp'] == iPlyMPMax and windower.ffxi.get_player()['status'] == '33' then
+        windower.send_command('/heal')
+        bHealing = false
+      end
+    else
+    
+      --Loop over the cure spells and start casting
+      for k,v in tblCures do
+        if windower.ffxi.get_player()['vitals']['mp'] < 8 and windower.ffxi.get_player()['status'] ~= '33' then
+          bHealing = true
+          windower.send_command('/heal')
+        else
+          --Check if the player has the spells
+          if windower.ffxi.get_spells()[v] == true then
+            --Player knows the spell so now we do the actual casting
+            windower.send_commnad('/ma '.. res.spells:with('id',k)['name']..' <me>')
+            --Sleep the script for the time being
+            coroutine.sleep(tonumber(res.spells:with('id',k)['cast_time'])
+          end             
+        end
+      end
+    end
+  end
+  
+  --Same loop logic for enhancing... I can refactor to clean this up at some point...
   
   
-  --Need to determine what cure levels we have...
-  --tblSpells = windower.ffxi.get_spells()
-  
-  
-  
-  --for k,v in pairs(tblSpells) do
-  --  windower.add_to_chat(121,k..' - '..v)
-  --while 
 
 else
   windower.add_to_chat(121,'Please change to WHM as your main Job!!!')
