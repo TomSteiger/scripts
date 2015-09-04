@@ -39,7 +39,7 @@ windower.add_to_chat(121,'Player MP: '..windower.ffxi.get_player()['vitals']['mp
 --print all of the skills for the player
 for k, v in pairs( tblPlyrSkills ) do
   if (k == 'healing_magic' or k == 'enhancing_magic') then
-    windower.add_to_chat(121,k .. ' - ' .. v)
+    --windower.add_to_chat(121,k .. ' - ' .. v)
   end
 end
 
