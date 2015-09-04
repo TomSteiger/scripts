@@ -60,10 +60,10 @@ windower.add_to_chat(121,'Enhancing Skill Cap for current level: '..tblEnhancing
 tblSpells = windower.ffxi.get_spells()
 
 --Get Cure spell IDs
---tblCures[1] = res.spells:with('name', 'Cure')
+tblCures[1] = res.spells:with('name', 'Cure')
 
---windower.add_to_chat(121,tblCures[1])
---windower.add_to_chat(121,tblSpells[tblCures[1]])
+windower.add_to_chat(121,tblCures[1])
+windower.add_to_chat(121,tblSpells[tblCures[1]])
 
 --for k,v in pairs(tblSpells) do
 --  windower.add_to_chat(121,k..' - '..v)
