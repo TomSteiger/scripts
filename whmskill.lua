@@ -15,11 +15,9 @@ function sleep(lcli)
   os.execute('timeout '..tonumber(lcli))
 end
 
-
-
 --Register a handler to stop script
 windower.register_event('chat message', function(message)
-  if message = 'Stop Skill Up' then
+  if message == 'Stop Skill Up' then
     bRun = false
   end
 end)
@@ -45,7 +43,7 @@ tblPlyrSkills={}
 tblCures={0,0,0,0,0}
 tblEnhance={0,0,0,0,0,0,0,0,0,0,0,0}
 bHealing=false
-bRun = true
+bRun=true
 
 --Get initial character information...
 tblPlayer = windower.ffxi.get_player()
@@ -108,7 +106,7 @@ if sPlyrJob == 'WHM' then
   
   
   --Start a loop for capping healing...
-  while ((tonumber(windower.ffxi.get_player()['skills']['healing_magic']) < tonumber(tblHealingCap[iPlyrLevel])) and bRun = true) do
+  while ((tonumber(windower.ffxi.get_player()['skills']['healing_magic']) < tonumber(tblHealingCap[iPlyrLevel])) and bRun == true) do
     if bHealing == true then
       if windower.ffxi.get_player()['vitals']['mp'] == iPlyMPMax and windower.ffxi.get_player()['status'] == '33' then
         windower.send_command('/heal')

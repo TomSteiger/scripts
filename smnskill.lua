@@ -1,8 +1,15 @@
 function snooze(lcli)
-  os.execute('timeout '..tonumber(lcli))
-  print('In the snooze function')
+  local nTime = os.time() + lcli
+  repeat until os.time() > ntime
 end
 
-print(1)
-snooze(3)
-print(2)
+windower.register_event('incoming text'function(original)
+  print(original)
+end)
+bRun = true
+i = 1
+
+while bRun == true do
+  print(i)
+  snooze(5)
+end
