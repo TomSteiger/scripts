@@ -12,7 +12,8 @@ require('tables')
 
 --Sleep function so that we can pause between casts...
 function sleep(lcli)
-  os.execute('timeout '..tonumber(lcli))
+  local nTime = os.time() + lcli
+  repeat until os.time() > nTime
 end
 
 --Register a handler to stop script
@@ -107,25 +108,41 @@ if sPlyrJob == 'WHM' then
   
   --Start a loop for capping healing...
   while ((tonumber(windower.ffxi.get_player()['skills']['healing_magic']) < tonumber(tblHealingCap[iPlyrLevel])) and bRun == true) do
-    if bHealing == true then
-      if windower.ffxi.get_player()['vitals']['mp'] == iPlyMPMax and windower.ffxi.get_player()['status'] == '33' then
-        windower.send_command('/heal')
-        bHealing = false
-      end
-    else
+    if windower.ffxi.get_player()['status'] == 1 then
+      bRun = false
+    end
     
+    --Check if we are restig or not...
+    if bHealing == true then
+      
+      print('MP: '..windower.ffxi.get_player()['vitals']['mp'])
+      print('MMP: '..iPlyrMPMax)
+      print('Status: '..windower.ffxi.get_player()['status'])
+      
+      if (windower.ffxi.get_player()['vitals']['mp'] == iPlyrMPMax and windower.ffxi.get_player()['status'] == 33) then
+        print('fully medded')
+        windower.send_command('input /heal')
+        bHealing = false
+      else
+        if windower.ffxi.get_player()['status'] ~= 33 then
+          windower.send_command('input /heal')
+        end
+      end
+      sleep(10)
+    else
       --Loop over the cure spells and start casting
       for k, v in pairs(tblCures) do
-        if windower.ffxi.get_player()['vitals']['mp'] < 8 and windower.ffxi.get_player()['status'] ~= '33' then
+        --print(k..'-'..v)
+        if (windower.ffxi.get_player()['vitals']['mp'] < 8 and windower.ffxi.get_player()['status'] ~= 33) then
           bHealing = true
           windower.send_command('/heal')
         else
           --Check if the player has the spells
-          if windower.ffxi.get_spells()[v] == true then
+          if tblPlyrSpells[v] == true then
             --Player knows the spell so now we do the actual casting
             windower.send_command('input /ma "'.. res.spells:with('id',k)['name']..'" <me>')
             --Sleep the script for the time being
-            iDelay = tonumber(res.spells:with('id',k)['cast_time']) + 2
+            iDelay = tonumber(res.spells:with('id',k)['cast_time']) * 4
             sleep(iDelay)
           end             
         end
@@ -138,3 +155,4 @@ else
   windower.add_to_chat(121,'Please change to WHM as your main Job!!!')
 end
 
+windower.add_to_chat(121,'All Done!!!')
