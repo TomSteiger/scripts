@@ -112,6 +112,9 @@ if sPlyrJob == 'WHM' then
             --Player knows the spell so now we do the actual casting
             windower.send_command('input /ma '.. res.spells:with('id',k)['name']..' <me>')
             --Sleep the script for the time being
+            while windower.ffxi.get_player()['status'] ~= '0' then
+              print('Not ready!')
+            do
             --how do I sleep here for the casting time
           end             
         end
