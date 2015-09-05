@@ -1,13 +1,8 @@
 function snooze(lcli)
-  coroutine.sleep(i)
-  bKeepGoing = true
+  os.execute('timeout '..tonumber(lcli))
+  print('In the snooze function')
 end
-
-bKeepGoing = false
 
 print(1)
 snooze(3)
-while bKeepGoing = false
-   print 'Keep waiting: '..bKeepGoing 
-end
-print (2)
+print(2)
