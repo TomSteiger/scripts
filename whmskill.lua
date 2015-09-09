@@ -12,8 +12,9 @@ require('tables')
 
 --Sleep function so that we can pause between casts...
 function sleep(lcli)
-  local nTime = os.time() + lcli
-  repeat until os.time() > nTime
+--  local nTime = os.time() + lcli
+--  repeat until os.time() > nTime
+  os.execute('timeout '.. tonumber(lcli))
 end
 
 --Register a handler to stop script
@@ -115,20 +116,22 @@ if sPlyrJob == 'WHM' then
     --Check if we are restig or not...
     if bHealing == true then
       
-      print('MP: '..windower.ffxi.get_player()['vitals']['mp'])
-      print('MMP: '..iPlyrMPMax)
-      print('Status: '..windower.ffxi.get_player()['status'])
+--      print('MP: '..windower.ffxi.get_player()['vitals']['mp'])
+--      print('MMP: '..iPlyrMPMax)
+--      print('Status: '..windower.ffxi.get_player()['status'])
       
       if (windower.ffxi.get_player()['vitals']['mp'] == iPlyrMPMax and windower.ffxi.get_player()['status'] == 33) then
         print('fully medded')
         windower.send_command('input /heal')
         bHealing = false
+        sleep(1)
       else
         if windower.ffxi.get_player()['status'] ~= 33 then
           windower.send_command('input /heal')
+          sleep(1)
         end
       end
-      sleep(10)
+      sleep(5)
     else
       --Loop over the cure spells and start casting
       for k, v in pairs(tblCures) do

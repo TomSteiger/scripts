@@ -1,6 +1,8 @@
 bind ^1 input /ra <t>
 bind ^2 input /ja "Provoke" <t>
-bind !1 input /ja "Boost" <me>; /wait 1; input /ws "Sturmwind" <t>
-bind !9 input /equip body "Centurion's scale mail"; input /equip hands "Bastokan mittens"; input /equip legs "Garrison hose"; input /equip feet "Bounding boots"
-bind !0 input /equip body "Vagabond's tunica"; input /equip hands "Vagabond's gloves"; input /equip legs "Vagabond's hose"; input /equip feet "Vagabond's boots"
+bind !1 input /ja "Drain Samba" <me>
+bind !2 input /ja "Curing Waltz" <me>
+bind !3 input /ja "Curing Waltz II" <me>
+bind !9 input /ja "Box Step" <t>
+bind !0 input /ja "Quickstep" <t>
 

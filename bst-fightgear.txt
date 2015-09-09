@@ -1,7 +1,6 @@
 echo "Gearing Up"
 
 input /equip main "Zoraal Ja's axe"
-input /equip sub "Zoraal Ja's axe"
 input /equip ring1 "Unyielding ring"
 input /equip range ""
 input /equip ammo "Pet Food Epsilon biscuit"
@@ -16,6 +15,7 @@ input /equip back "Jaguar mantle"
 input /equip waist "Royal Knight's belt"
 input /equip legs "Iron Ram breeches"
 input /equip feet "Bounding boots"
+input /equip sub "Zoraal Ja's axe"
 
 echo "Ready to fight"
 
