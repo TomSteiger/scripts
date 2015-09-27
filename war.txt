@@ -1,3 +1,8 @@
+echo "Setting up WAR Macros"
+
+exec unbind.txt
+exec war-gear.txt
+
 bind ^1 input /ra <t>
 bind ^2 input /ja "Provoke" <t>
 bind !1 input /ja "Drain Samba" <me>
@@ -6,3 +11,7 @@ bind !3 input /ja "Curing Waltz II" <me>
 bind !9 input /ja "Box Step" <t>
 bind !0 input /ja "Quickstep" <t>
 
+bind !^1 exec war-run.txt
+bind !^2 exec war-gear.txt
+
+echo "War macro's bound"

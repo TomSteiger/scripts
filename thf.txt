@@ -1,9 +1,11 @@
 bind ^1 input /p Pulling <t>; /wait 1; input /ra <t>
-bind ^2 input /ja "Sneak Attack" <me>; /wait 1; input /a <t>
-bind ^3 input /ja "Sneak Attack" <me>;/wait 1; input /ja "Trick Attack" <me>; /wait 1; input /a <t>
-bind ^4 input /p "SATA in 2" <call4>; input /ja "Sneak Attack" <me>; input /ja "Trick Attack" <me>; /wait 1; input /ws "Gust Slash" <t>
+bind ^2 input /ja "Sneak Attack" <me>; wait 5fs; input /ws "Dancing Edge" <t>
+bind ^3 input /ja "Trick Attack" <me>; wait 1; input /ws "Dancing Edge" <t>
+bind ^0 input /p Pulling <t> <call4>;
 
 bind !1 input /ja "Drain Samba" <me>;
 bind !2 input /ja "Curing Waltz" <stpc>
+bind !9 input /ja "Quickstep" <t>;
+bind !0 input /ja "Box Step" <t>;
 
 
