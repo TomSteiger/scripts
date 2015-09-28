@@ -6,5 +6,3 @@ input /ma "Cure III" <me>;
 wait 6
 input /ma "Cure IV" <me>;
 wait 6
-input /ma "Cure V" <me>;
-wait 6
