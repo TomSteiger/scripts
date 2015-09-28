@@ -1,0 +1,23 @@
+echo "Unbinding keys"
+exec unbind.txt
+
+echo "Setting up BLM Skilling key bindings"
+
+bind ^1 input /ma "Silence" <t>
+bind ^2 input /ma "Drain" <t>
+bind ^3 input /ma "Aspir" <t>
+bind ^4 input /ma "Cure III" <me>
+bind ^9 input /ma "Blink" <me>
+bind ^0 input /ma "Stoneskin" <me>
+
+bind !1 input /ma "Bio" <t>
+bind !2 input /ma "Poison" <t>
+bind !3 input /ma "Dia" <t>
+bind !4 input /ma "Aspir" <t>
+bind !5 input /ma "Bind" <t>
+
+bind ^h input /heal; input /equip main "Chatoyant staff"
+
+echo "BLM Skill - key bindings complete"
+
+

@@ -1,0 +1,7 @@
+echo "Gearing Up"
+
+
+input /equip hands
+input /equip legs
+
+echo "Run run run..."

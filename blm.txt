@@ -1,0 +1,26 @@
+echo "Unbinding keys"
+exec unbind.txt
+
+echo "Setting up BLM key bindings
+
+bind ^1 input /ma "Bind" <t>
+bind ^2 input /ma "Drain" <t>
+bind ^3 input /equip main "Chatoyant staff"; input /ma "Freeze" <t>
+bind ^4 input /equip main "Chatoyant staff"; input /ma "Burst" <t>
+bind ^5 input /equip main "Chatoyant staff"; input /ma "Flood" <t>
+bind ^6 input /equip main "Chatoyant staff"; input /ma "Flare" <t>
+
+
+bind !1 input /equip main "Chatoyant staff"; input /ma "Stone IV" <t>
+bind !2 input /equip main "Chatoyant staff"; input /ma "Blizzard III" <t>
+bind !3 input /equip main "Chatoyant staff"; input /ma "Aero III" <t>
+bind !4 input /equip main "Chatoyant staff"; input /ma "Thunder III" <t>
+bind !5 input /equip main "Chatoyant staff"; input /ma "Fire III" <t>
+bind !6 input /equip main "Neptune's staff"; input /ma "Water III" <t>
+
+bind ^h input /heal; input /equip main "Chatoyant staff"
+
+
+echo "BLM key bindings complete"
+
+

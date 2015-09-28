@@ -1,0 +1,15 @@
+echo "Unbinding keys"
+exec unbind.txt
+
+echo "Setting up SMN key bindings
+
+bind ^1 input /ma "Carbuncle" <me>
+bind ^2 input /pet "Assault" <t>
+bind ^3 input /pet "Retreat" <me>
+bind ^4 input /pet "Release" <me>	
+
+bind !1 input /pet "Blood Pact: Rage" <t>
+
+echo "SMN key bindings complete"
+
+

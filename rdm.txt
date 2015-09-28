@@ -1,0 +1,23 @@
+echo "Unbinding"
+exec unbind.txt
+
+echo "RDM macro's starting"
+
+bind ^1 input /ma "Dia" <t>
+bind ^2 input /ma "Paralyze" <t>
+bind ^3 input /ma "Slow" <t>
+bind ^4 input /ma "Blind" <t>
+bind ^5 input /ma "Poison" <t>
+bind ^6 input /ma "Thunder" <t>
+
+bind ^8 input /ma "Dispel" <t>
+
+bind ^9 input /ma "Silence" <t>
+bind ^0 input /ma "Sleep" <t>
+
+bind !1 input /ma "Cure" <stpc>;
+bind !2 input /ma "Cure II" <stpc>;
+bind !3 input /ma "Cure III" <stpc>;
+bind !0 input /ma "Regen" <stpc>';
+
+echo "RDM Macros done"
