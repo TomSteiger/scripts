@@ -1,8 +1,8 @@
 input /ma "Cure" <me>;
-wait 5
+wait 6
 input /ma "Cure" <me>;
-wait 5
+wait 6
 input /ma "Cure" <me>;
-wait 5
+wait 6
 input /ma "Cure" <me>;
-wait 5
+wait 6
