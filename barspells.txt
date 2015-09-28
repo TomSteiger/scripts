@@ -1,0 +1,12 @@
+input /ma Barfira <me>;
+wait 6
+input /ma Barblizzara <me>;
+wait 6
+input /ma Baraera <me>;
+wait 6
+input /ma Barstonra <me>;
+wait 6
+input /ma Barthundra <me>;
+wait 6
+input /ma Barwatera <me>;
+wait 6
