@@ -1,0 +1,3 @@
+input /ma bio <t>;
+wait 6
+
